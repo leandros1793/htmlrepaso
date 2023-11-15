@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Open+Sans:ital,wght@0,500;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Seguro No Pagamos - Solicitar Contacto</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Seguro No Pagamos cooperativa</h1>
+        <h2>Solicitar Contacto</h2>
+    <form id="contactForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required>
+
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" name="dni" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required>
+
+        <label for="tipoSeguro">Tipo de Seguro:</label>
+        <select id="tipoSeguro" name="tipoSeguro" onchange="mostrarPrecioSeguro()" required>
+            <option value="basico">Básico</option>
+            <option value="intermedio">Intermedio</option>
+            <option value="premium">Premium</option>
+        </select>
+
+        <div id="precioSeguro">
+            <!-- El precio del seguro seleccionado se mostrará aquí -->
+        </div>
+
+        <button type="submit">Enviar Solicitud</button>
+    </form>
+
+    <script>
+        function mostrarPrecioSeguro() {
+            const tipoSeguroSelect = document.getElementById('tipoSeguro');
+            const precioSeguroDiv = document.getElementById('precioSeguro');
+
+            const tipoSeguro = tipoSeguroSelect.value;
+            let precio;
+
+            switch (tipoSeguro) {
+                case 'basico':
+                    precio = '$500';
+                    break;
+                case 'intermedio':
+                    precio = '$1000';
+                    break;
+                case 'premium':
+                    precio = '$1500';
+                    break;
+                default:
+                    precio = 'No válido';
+                    break;
+            }
+
+            precioSeguroDiv.textContent = `Precio: ${precio}`;
+        }
+    </script>
+</body>
+</html>

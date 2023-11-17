@@ -115,17 +115,17 @@
         }
 
         function validarTelefono() {
-            const telefono = document.getElementById('telefono').value.trim();
-            const errorTelefono = document.getElementById('errorTelefono');
-            const telefonoRegex = /^\d{11}$/;
+    const telefono = document.getElementById('telefono').value.trim();
+    const errorTelefono = document.getElementById('errorTelefono');
+    const telefonoRegex = /^\d{11,}$/;
 
-            if (telefono === '' || !telefonoRegex.test(telefono)) {
-                errorTelefono.textContent = 'Por favor, ingrese un teléfono válido de 11 dígitos.';
-                return false;
-            }
-            errorTelefono.textContent = '';
-            return true;
-        }
+    if (telefono === '' || !telefonoRegex.test(telefono)) {
+        errorTelefono.textContent = 'Por favor, ingrese un teléfono válido con al menos 11 dígitos.';
+        return false;
+    }
+    errorTelefono.textContent = '';
+    return true;
+}
     
         function validarFormulario(event) {
             event.preventDefault();

@@ -142,9 +142,14 @@
         }
 
         function mostrarPrecioSeguro() {
-            const tipoSeguro = document.getElementById('tipoSeguro').value;
-            let precio = 0;
+            const tipoSeguroElement = document.getElementById('tipoSeguro');
+        let tipoSeguro = tipoSeguroElement.value; // Obtén el tipo de seguro seleccionado
 
+        if (tipoSeguro === '') {
+            tipoSeguro = 'basico'; // Si no se ha seleccionado, establece el básico como predeterminado
+        }
+
+        let precio = 0;
             switch (tipoSeguro) {
                 case 'basico':
                     precio = 500;
@@ -155,13 +160,15 @@
                 case 'premium':
                     precio = 1500;
                     break;
-                default:
-                    precio = 0;
-                    break;
+                    default:
+                precio = 500;
+                break;
             }
 
             const precioSeguroDiv = document.getElementById('precioSeguro');
             precioSeguroDiv.innerHTML = `<p>El precio del seguro seleccionado es:  $${precio}</p>`;
+            tipoSeguroElement.value = tipoSeguro;
+        
         }
     </script>
 </body>

@@ -117,10 +117,10 @@
         function validarTelefono() {
     const telefono = document.getElementById('telefono').value.trim();
     const errorTelefono = document.getElementById('errorTelefono');
-    const telefonoRegex = /^\d{11,}$/;
+    const telefonoRegex = /^\d{10,}$/;
 
     if (telefono === '' || !telefonoRegex.test(telefono)) {
-        errorTelefono.textContent = 'Por favor, ingrese un teléfono válido con al menos 11 dígitos.';
+        errorTelefono.textContent = 'Por favor, ingrese un teléfono válido con al menos 10 dígitos.';
         return false;
     }
     errorTelefono.textContent = '';

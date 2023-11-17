@@ -120,7 +120,7 @@
             const telefonoRegex = /^\d{11}$/;
 
             if (telefono === '' || !telefonoRegex.test(telefono)) {
-                errorTelefono.textContent = 'Por favor, ingrese un teléfono válido de 9 dígitos.';
+                errorTelefono.textContent = 'Por favor, ingrese un teléfono válido de 11 dígitos.';
                 return false;
             }
             errorTelefono.textContent = '';
